@@ -21,6 +21,23 @@ body {
 	box-shadow: 0 0 10px 0 rgba(0,0,0,.25);
 }
 
+#game-cover {
+	background-color: rgba(100, 100, 100, 0.5);
+	display: none;
+	z-index: 10;
+	height: 600px;
+	width: 1000px;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+
+	border-radius: 5px;
+}
+
 .button {
 	display: block;
 	letter-spacing: .15em;
@@ -120,7 +137,7 @@ body {
 	position: absolute;
 }
 
-#settings-popup {
+#settings-popup, #finance-popup {
 	background-color: rgb(137, 201, 249);
 	display: none;
 	height: 400px;
@@ -128,9 +145,35 @@ body {
 	border-radius: 3px;
 	z-index: 15;
 
+	position: absolute;
+	margin: auto;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+
 	-webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,.25);
 	-moz-box-shadow: 0 0 10px 0 rgba(0,0,0,.25);
 	box-shadow: 0 0 10px 0 rgba(0,0,0,.25);
+}
+
+#finance-popup {
+	width: 600px;
+}
+
+#finance-total {
+	font-family: 'Roboto Slab';
+	font-size: 24px;
+	margin: 10px 0;
+	color: rgb(255, 255, 255);
+}
+
+#finance-table {
+	width: 100%
+}
+
+#finance-table thead {
+	font-family: 'Roboto Slab';
 }
 
 .popup-header {
@@ -160,6 +203,15 @@ body {
 
 .popup-close:hover {
 	cursor: pointer;
+}
+
+.popup-content {
+	position: absolute;
+	top: 36px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
 }
 
 #us-map {

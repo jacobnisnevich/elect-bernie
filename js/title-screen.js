@@ -38,17 +38,23 @@ $(document).ready(function() {
 	});
 
 	$("#settings-button").click(function() {
+		$("#pause-button").click();
+		$("#game-cover").show();
 		$("#settings-popup").fadeIn("fast");
 	});
 
+	$("#finance-button").click(function() {
+		$("#pause-button").click();
+		$("#game-cover").show();
+		$("#finance-popup").fadeIn("fast");
+	});
+
 	$(".popup-close").click(function() {
+		$("#play-button").click();
+		$("#game-cover").hide();
 		$($(this).closest(".popup")[0]).fadeOut("fast");
 	});
 
-	$("#settings-popup").draggable({
-		handle: ".popup-header",
-		containment: "#game-canvas"
-	});
 
 	// Draw map
 

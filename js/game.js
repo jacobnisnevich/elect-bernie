@@ -11,6 +11,12 @@ var Game = function(gameState) {
 
 	this.selectedState = null;
 
+	this.money = gameState.finances["Bernie Sanders"].total;
+	this.staff = gameState.finances["Bernie Sanders"].staff;
+	this.totalStaff = gameState.finances["Bernie Sanders"].staff.total;
+	this.monthlyRevenue = gameState.finances["Bernie Sanders"].raisedPerMonth;
+	this.financeLog = [];
+
 	this.day = gameState.date.day;
 	this.month = gameState.date.month;
 	this.year = gameState.date.year;
@@ -34,13 +40,90 @@ var Game = function(gameState) {
 };
 
 Game.prototype.tick = function(self) {
-	self.updateMap();
 	self.incrementDate(1);
+	self.checkIfMoneyBomb();
+	if (this.day == 1) {
+		self.updatePolls();
+		self.doMonthlyFinances();
+	}
+	self.updateMap();
 	$("#date-display").text(this.displayDate);
+	$("#finance-total").text(formatDollar(this.money));
 };
 
 Game.prototype.updateMap = function() {
 
+};
+
+Game.prototype.updatePolls = function() {
+
+};
+
+Game.prototype.doMonthlyFinances = function() {
+	this.paySalaries();
+	this.addRevenue();
+	this.updateFinanceTable();
+};
+
+Game.prototype.paySalaries = function() {
+	var totalSalaries = -1 * (42000 * this.totalStaff);
+
+	this.money += totalSalaries;
+
+	this.financeLog.push({
+		"Description": "Payed " + this.totalStaff + " staff for month of " + monthNames[this.month - 1],
+		"Date": this.displayDate,
+		"Amount": totalSalaries
+	});
+};
+
+Game.prototype.addRevenue = function() {
+	var randomVariation = Math.floor((Math.random() * 1000000) - 500000); // random number between -$500,000 and $500,000
+	var totalRevenue = this.monthlyRevenue + randomVariation;
+
+	this.money += totalRevenue;
+
+	this.financeLog.push({
+		"Description": "Campaign earnings for month of " + monthNames[this.month - 1],
+		"Date": this.displayDate,
+		"Amount": totalRevenue
+	});
+};
+
+Game.prototype.addMoneyBomb = function() {
+	var randomEarning = Math.floor((Math.random() * 150000) + 50000); // random number between $50,000 and $150,000
+	var totalMoneyBomb = randomEarning;
+
+	this.money += totalMoneyBomb;
+
+	this.financeLog.push({
+		"Description": "Money bomb from /r/SandersForPresident",
+		"Date": this.displayDate,
+		"Amount": totalMoneyBomb
+	});
+};
+
+Game.prototype.checkIfMoneyBomb = function() {
+	var randomChance = Math.floor(Math.random() * 100);
+	if (randomChance <= 1) {
+		this.addMoneyBomb();
+		this.updateFinanceTable();
+	}
+};
+
+Game.prototype.updateFinanceTable = function() {
+	$tableBody = $("#finance-table tbody");
+	$tableBody.empty();
+
+	this.financeLog.forEach(function(transaction) {
+		var tableRow = "<tr><td>" + transaction["Description"] + "</td><td>" + transaction["Date"] + "</td>";
+		if (transaction["Amount"] < 0) {
+			tableRow = tableRow + "<td style='color: rgb(245, 91, 91)'>" +  formatDollar(-1 * transaction["Amount"]) + "</td></tr>";
+		} else {
+			tableRow = tableRow + "<td>" +  formatDollar(transaction["Amount"]) + "</td></tr>";
+		}
+		$tableBody.append(tableRow);
+	});
 };
 
 Game.prototype.incrementDate = function(daysAdded) {
@@ -77,3 +160,10 @@ Game.prototype.stateClicked = function(stateData) {
 		this.selectedState = null;
 	}
 };
+
+function formatDollar(num) {
+	var p = num.toFixed(2).split(".");
+	return "$" + p[0].split("").reverse().reduce(function(acc, num, i, orig) {
+		return  num + (i && !(i % 3) ? "," : "") + acc;
+	}, "") + "." + p[1];
+}

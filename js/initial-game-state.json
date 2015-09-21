@@ -9,6 +9,7 @@
 			"total": 40000000,
 			"raisedPerMonth": 15000000,
 			"staff": {
+				"total": 125,
 				"Primary": 25,
 				"Iowa": 50,
 				"New Hampshire": 30,
