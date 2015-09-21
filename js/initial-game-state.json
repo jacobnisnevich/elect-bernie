@@ -20,13 +20,13 @@
 	"states": {
 		"Iowa": {
 			"polling": {
-				"Bernie Sanders": 37.0,
+				"Bernie Sanders": 38.0,
 				"Hillary Clinton": 37.0,
 				"Joe Biden": 14.0,
 				"Martin O'Malley": 4.0,
 				"Jim Webb": 1.3,
 				"Lincoln Chafee": 0.7,
-				"Larry Lessig": 0
+				"Lawrence Lessig": 0
 			},
 			"demographics": {
 				"race": {

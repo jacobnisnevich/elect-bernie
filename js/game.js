@@ -5,6 +5,12 @@ var monthNames = [
 	"November", "December"
 ];
 
+var candidateColors = {
+	"Hillary Clinton": "rgb(77, 197, 77)",
+	"Bernie Sanders": "rgb(245, 91, 91)",
+	"Joe Biden": "rgb(255, 174, 98)"
+}
+
 var Game = function(gameState) {
 	this.paused = false;
 	this.speed = 1;
@@ -20,6 +26,8 @@ var Game = function(gameState) {
 	this.day = gameState.date.day;
 	this.month = gameState.date.month;
 	this.year = gameState.date.year;
+
+	this.states = gameState.states;
 
 	this.displayDate = monthNames[this.month] + " " + this.day + ", " + this.year;
 
@@ -52,7 +60,11 @@ Game.prototype.tick = function(self) {
 };
 
 Game.prototype.updateMap = function() {
-
+	$.each(this.states, function(state, stateData) {
+		var frontRunner = getFrontRunner(stateData.polling).candidate;
+		var stateColor = candidateColors[frontRunner];
+		$("*[data-state='" + state + "']").css("fill", stateColor);
+	});
 };
 
 Game.prototype.updatePolls = function() {
@@ -118,9 +130,9 @@ Game.prototype.updateFinanceTable = function() {
 	this.financeLog.forEach(function(transaction) {
 		var tableRow = "<tr><td>" + transaction["Description"] + "</td><td>" + transaction["Date"] + "</td>";
 		if (transaction["Amount"] < 0) {
-			tableRow = tableRow + "<td style='color: rgb(245, 91, 91)'>" +  formatDollar(-1 * transaction["Amount"]) + "</td></tr>";
+			tableRow = tableRow + "<td style='color: rgb(245, 91, 91); text-align: right;'>" +  formatDollar(-1 * transaction["Amount"]) + "</td></tr>";
 		} else {
-			tableRow = tableRow + "<td>" +  formatDollar(transaction["Amount"]) + "</td></tr>";
+			tableRow = tableRow + "<td style='text-align: right;'>" +  formatDollar(transaction["Amount"]) + "</td></tr>";
 		}
 		$tableBody.append(tableRow);
 	});
@@ -161,9 +173,25 @@ Game.prototype.stateClicked = function(stateData) {
 	}
 };
 
-function formatDollar(num) {
+var formatDollar = function(num) {
 	var p = num.toFixed(2).split(".");
 	return "$" + p[0].split("").reverse().reduce(function(acc, num, i, orig) {
 		return  num + (i && !(i % 3) ? "," : "") + acc;
 	}, "") + "." + p[1];
-}
+};
+
+var getFrontRunner = function(pollingData) {
+	var leadingCandidate = {
+		"candidate": "",
+		"percent": 0,
+	}
+
+	$.each(pollingData, function(candidate, percent) {
+		if (percent > leadingCandidate.percent) {
+			leadingCandidate.candidate = candidate;
+			leadingCandidate.percent = percent;
+		}
+	});
+
+	return leadingCandidate;
+};
