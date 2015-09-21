@@ -11,16 +11,25 @@ $(document).ready(function() {
 
 	$("#play-button").click(function() {
 		game.playGame();
+		$("#play-button i").css("color", "rgb(245, 91, 91)");
+		$("#ff-button i").css("color", "rgb(255, 255, 255)");
+		$("#pause-button i").css("color", "rgb(255, 255, 255)");
 		showMessage("Game speed set to 1");
 	});
 
 	$("#pause-button").click(function() {
 		game.pauseGame();
+		$("#pause-button i").css("color", "rgb(245, 91, 91)");
+		$("#ff-button i").css("color", "rgb(255, 255, 255)");
+		$("#play-button i").css("color", "rgb(255, 255, 255)");
 		showMessage("Game speed set to 0");
 	});
 
 	$("#ff-button").click(function() {
 		game.fastForwardGame();
+		$("#ff-button i").css("color", "rgb(245, 91, 91)");
+		$("#pause-button i").css("color", "rgb(255, 255, 255)");
+		$("#play-button i").css("color", "rgb(255, 255, 255)");
 		showMessage("Game speed set to 2");
 	});
 
@@ -29,11 +38,11 @@ $(document).ready(function() {
 	});
 
 	$("#settings-button").click(function() {
-		$("#settings-popup").show();
+		$("#settings-popup").fadeIn("fast");
 	});
 
 	$(".popup-close").click(function() {
-		$($(this).closest(".popup")[0]).hide();
+		$($(this).closest(".popup")[0]).fadeOut("fast");
 	});
 
 	$("#settings-popup").draggable({

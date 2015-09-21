@@ -121,7 +121,7 @@ body {
 }
 
 #settings-popup {
-	background-color: rgb(255, 255, 255);
+	background-color: rgb(137, 201, 249);
 	display: none;
 	height: 400px;
 	width: 300px;
@@ -146,6 +146,10 @@ body {
 	top: 0;
 	left: 0;
 	right: 0;
+}
+
+.popup-header:hover {
+	cursor: default;
 }
 
 .popup-close {
