@@ -6,7 +6,7 @@
 	},
 	"states": {
 		"Iowa": {
-			"polling": {
+			"polling": { // source: RCP average
 				"Bernie Sanders": 37.0,
 				"Hillary Clinton": 37.0,
 				"Joe Biden": 14.0,
@@ -15,7 +15,7 @@
 				"Lincoln Chafee": 0.7,
 				"Larry Lessig": 0
 			},
-			"demographics": {
+			"demographics": { // source: Wikipedia
 				"race": {
 					"White": 0.913,
 					"Black": 0.029,
@@ -44,7 +44,7 @@
 					"Unemployment": 0.044
 				}
 			},
-			"issues": [
+			"issues": [ // source: made these up
 				"Agriculture",
 				"Economy",
 				"Gun Control"
