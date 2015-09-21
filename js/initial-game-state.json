@@ -4,7 +4,51 @@
 		"month": 8,
 		"year": 2015
 	},
-	"states": [
-		"iowa"
-	]
+	"states": {
+		"Iowa": {
+			"polling": {
+				"Bernie Sanders": 37.0,
+				"Hillary Clinton": 37.0,
+				"Joe Biden": 14.0,
+				"Martin O'Malley": 4.0,
+				"Jim Webb": 1.3,
+				"Lincoln Chafee": 0.7,
+				"Larry Lessig": 0
+			},
+			"demographics": {
+				"race": {
+					"White": 0.913,
+					"Black": 0.029,
+					"Asian": 0.017,
+					"Native": 0.004,
+					"Pacific Islander": 0.001,
+					"Other": 0.036
+				},
+				"religion": {
+					"Religious": 0.71,
+					"Non-Religious": 0.13,
+					"N/A": 0.05
+				},
+				"language": {
+					"English": 0.94,
+					"Spanish": 0.04,
+					"German": 0.01,
+					"Other": 0.01
+				},
+				"gender": {
+					"Male": 0.496,
+					"Female": 0.504
+				},
+				"income": {
+					"Per Capita": 23340,
+					"Unemployment": 0.044
+				}
+			},
+			"key issues": [
+				"Agriculture",
+				"Economy",
+				"Gun Control"
+			]
+		}
+	}
 }
