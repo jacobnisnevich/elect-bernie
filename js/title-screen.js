@@ -7,6 +7,10 @@ $(document).ready(function() {
 		});
 	});
 
+	$("#donate-button").click(function() {
+		window.open("https://secure.actblue.com/contribute/page/reddit-for-bernie", "_blank");
+	});
+
 	// Game buttons
 
 	$("#play-button").click(function() {
