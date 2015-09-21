@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<link rel="stylesheet" href="css/styles.css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700|Roboto:400,100,300,700,400italic' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
+
+	<script src="js/game.js"></script>
+	<script src="js/title-screen.js"></script>
+</head>
+<body>
+	<div id="game-canvas">
+		<div class="game-screen" id="title-screen">
+			<div id="title-screen-img"></div>
+			<div class="button title-button" id="new-game-button">NEW GAME</div>
+			<div class="button title-button" id="load-game-button">LOAD GAME</div>
+			<div class="button title-button" id="instructions-button">INSTRUCTIONS</div>
+			<div class="button title-button" id="about-button">ABOUT</div>
+		</div>
+		<div class="game-screen" id="main-game-screen">
+			<div class="button" id="settings-button"><i class="material-icons">settings</i></div>
+			<div id="date-display"></div>
+			<div id="time-controls">
+				<div id="play-button"><i class="material-icons">play_arrow</i></div>
+				<div id="pause-button"><i class="material-icons">pause</i></div>
+				<div id="ff-button"><i class="material-icons">fast_forward</i></div>
+			</div>
+			<div id="message-area"></div>
+		</div>
+	</div>
+</body>
+</html>

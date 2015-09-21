@@ -1,0 +1,166 @@
+body {
+	background-color: rgb(255, 255, 255);
+	font-family: Roboto;
+}
+
+#game-canvas {
+	background-color: rgb(8, 126, 215);
+	height: 600px;
+	width: 1000px;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+
+	border-radius: 5px;
+	-webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,.25);
+	-moz-box-shadow: 0 0 10px 0 rgba(0,0,0,.25);
+	box-shadow: 0 0 10px 0 rgba(0,0,0,.25);
+}
+
+.button {
+	display: block;
+	letter-spacing: .15em;
+	box-sizing: border-box;
+	border-radius: 3px;
+	border: 0;
+	background-color: rgb(245, 91, 91);
+}
+
+.button:hover {
+	background-color: rgb(236, 62, 62);
+	cursor: pointer
+}
+
+.game-screen {
+	height: 100%;
+	width: 100%;
+}
+
+#main-game-screen {
+	display: none;
+}
+
+/* Map */
+
+.background {
+	fill: none;
+	pointer-events: all;
+}
+
+#states {
+	fill: rgb(255, 255, 255);
+}
+
+#states .active {
+	fill: rgb(245, 91, 91);
+}
+
+#state-borders {
+	fill: none;
+	stroke: rgb(205, 205, 205);
+	stroke-width: 1.5px;
+	stroke-linejoin: round;
+	stroke-linecap: round;
+	pointer-events: none;
+}
+
+/* Title Screen */
+
+.title-button {
+	color: rgb(255, 255, 255);
+	padding: 15px;
+	margin: 20px auto;
+	width: 200px;
+	text-align: center;
+	font-weight: bold;
+}
+
+#title-screen-img {
+	background-image: url("../img/Bernie2016inverted.svg");
+	width: 225px;
+	height: 146px;
+	background-size: 100%;
+	margin: 30px auto 50px auto;
+}
+
+/* Main Game Screen */
+
+#settings-button {
+	height: 48px;
+	width: 48px;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	color: rgb(255, 255, 255);
+	z-index: 10;
+}
+
+#settings-button:hover {
+	color: rgb(235, 235, 235);
+}
+
+#settings-button i {
+	font-size: 36px;
+	top: 6px;
+	left: 6px;
+	position: absolute;
+}
+
+#us-map {
+	height: 400px;
+	width: 600px;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+#date-display {
+	position: absolute;
+	top: 5px;
+	left: 0px;
+	right: 0px;
+	margin: 0 auto;
+	text-align: center;
+	color: rgb(255, 255, 255);
+	font-family: 'Roboto Slab';
+	font-size: 18px;
+}
+
+#time-controls {
+	position: absolute;
+	top: 35px;
+	left: 0px;
+	right: 0px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#time-controls div {
+	display: inline-block;
+	margin: 0px 10px;
+}
+
+#time-controls div i {
+	color: rgb(255, 255, 255);
+}
+
+#time-controls div i:hover {
+	color: rgb(235, 235, 235);
+	cursor: pointer;
+}
+
+#message-area {
+	position: absolute;
+	bottom: 5px;
+	left: 5px;
+	color: rgb(255, 255, 255);
+	font-family: 'Roboto Slab';
+}
