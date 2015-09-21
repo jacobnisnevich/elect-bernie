@@ -6,6 +6,7 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
 
@@ -22,6 +23,12 @@
 			<div class="button title-button" id="about-button">ABOUT</div>
 		</div>
 		<div class="game-screen" id="main-game-screen">
+			<div class="popup" id="settings-popup">
+				<div class="popup-header">Settings <div class="popup-close"><i class="material-icons">clear</i></div></div>
+				<div class="popup-content"></div>
+			</div> 
+
+			<div class="button" id="finance-button"><i class="material-icons">attach_money</i></div>
 			<div class="button" id="settings-button"><i class="material-icons">settings</i></div>
 			<div id="date-display"></div>
 			<div id="time-controls">

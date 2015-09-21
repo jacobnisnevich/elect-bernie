@@ -1,9 +1,9 @@
 $(document).ready(function() {
 	$("#new-game-button").click(function() {
-		$("#title-screen").hide();
-		$("#main-game-screen").show();
 		$.getJSON("js/initial-game-state.json", function(gameState) {
 			game = new Game(gameState);
+			$("#title-screen").hide();
+			$("#main-game-screen").show();
 		});
 	});
 
@@ -26,6 +26,19 @@ $(document).ready(function() {
 
 	$("#us-map").on("click", "#states path", function() {
 		alert("You clicked on " + $(this).data("state"));
+	});
+
+	$("#settings-button").click(function() {
+		$("#settings-popup").show();
+	});
+
+	$(".popup-close").click(function() {
+		$($(this).closest(".popup")[0]).hide();
+	});
+
+	$("#settings-popup").draggable({
+		handle: ".popup-header",
+		containment: "#game-canvas"
 	});
 
 	// Draw map
