@@ -154,7 +154,7 @@ body {
 }
 
 #finance-popup {
-	width: 600px;
+	width: 700px;
 }
 
 #finance-total {
@@ -208,6 +208,7 @@ body {
 	left: 0;
 	right: 0;
 	text-align: center;
+	overflow-y: scroll;
 }
 
 #us-map {
